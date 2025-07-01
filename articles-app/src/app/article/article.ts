@@ -1,4 +1,5 @@
-import { Component, input } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Article } from '../models/article';
 
 @Component({
   selector: 'app-article',
@@ -6,10 +7,10 @@ import { Component, input } from '@angular/core';
   templateUrl: './article.html',
   styleUrl: './article.css'
 })
-export class Article {
+export class ArticleComponent {
     #symbols: number = 250;
-    @input() article: Article;
-    @input() articleDesc: string;
+    @Input() article!: Article;
+    @Input() articleDesc!: string;
     descToShow: string;
     articleDescLen: number;
     showReadMoreBtn: boolean = true;
@@ -20,5 +21,17 @@ export class Article {
     constructor() {
         this.articleDescLen = 0;
         this.descToShow = "";
+    }
+
+    readMore(): void {
+        this.articleDescLen
+    }
+
+    toggleImage(): void {
+
+    }
+
+    hideDesc(): void {
+
     }
 }
