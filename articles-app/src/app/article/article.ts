@@ -24,14 +24,25 @@ export class ArticleComponent {
     }
 
     readMore(): void {
-        this.articleDescLen
+        this.articleDescLen += this.#symbols;
+
+        if (this.articleDescLen >= this.articleDesc.length) {
+            this.showReadMoreBtn = false;
+            this.showHideBtn = true;
+        } else {
+            this.descToShow = this.articleDesc.substring(0, this.articleDescLen)
+        }
     }
 
     toggleImage(): void {
-
+        this.imageIsShown = !this.imageIsShown;
+        this.imageButtonTitle = this.imageButtonTitle === 'Show Image' ? "Hide Image" : "Show Image";
     }
 
     hideDesc(): void {
-
+        this.descToShow = '';
+        this.articleDescLen = 0;
+        this.showHideBtn = false;
+        this.showReadMoreBtn = true;
     }
 }
